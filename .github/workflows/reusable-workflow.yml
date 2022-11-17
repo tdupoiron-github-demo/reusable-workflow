@@ -35,4 +35,6 @@ jobs:
     steps:
       - name: Add two numbers
         id: addition
-        run: echo "sum=$((${{ inputs.first_number }} + ${{ inputs.second_number }}))" >> $GITHUB_OUTPUT
+        run: |
+          export sum=$((${{ inputs.first_number }} + ${{ inputs.second_number }}))
+          echo "sum=$sum >> $GITHUB_OUTPUT
