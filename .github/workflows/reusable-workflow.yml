@@ -1,0 +1,38 @@
+name: Sum 2 numbers
+
+on:
+
+  workflow_dispatch:
+    inputs:
+      first_number:
+        description: 'First number'
+        required: true
+        default: '1'
+
+      second_number:
+        description: 'Second number'
+        required: true
+        default: '1'
+
+  workflow_call:
+    inputs:
+      first_number:
+        description: 'First number'
+        required: true
+        type: number
+      second_number:
+        description: 'Second number'
+        required: true
+        type: number
+    outputs:
+      sum:
+        description: 'Sum of the two numbers'
+        value: ${{ steps.addition.outputs.sum }}
+
+jobs:
+  sum:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add two numbers
+        id: addition
+        run: echo "::set-output name=sum::$((${{ inputs.first_number }} + ${{ inputs.second_number }}))"
