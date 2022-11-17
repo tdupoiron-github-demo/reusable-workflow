@@ -38,3 +38,4 @@ jobs:
         run: |
           export sum=$((${{ inputs.first_number }} + ${{ inputs.second_number }}))
           echo sum=$sum >> $GITHUB_OUTPUT
+          echo $sum
