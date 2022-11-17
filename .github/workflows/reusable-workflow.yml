@@ -27,7 +27,7 @@ on:
     #outputs:
     #  sum:
     #    description: 'Sum of the two numbers'
-    #    value: ${{ steps.addition.outputs.sum }}
+    #    value: ${{ jobs.sum.steps.addition.outputs.sum }}
 
 jobs:
   sum:
@@ -37,4 +37,4 @@ jobs:
         id: addition
         run: |
           export sum=$((${{ inputs.first_number }} + ${{ inputs.second_number }}))
-          echo "sum=$sum >> $GITHUB_OUTPUT
+          echo "sum=$sum" >> $GITHUB_OUTPUT
