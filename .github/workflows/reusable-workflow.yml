@@ -31,6 +31,8 @@ on:
 
 jobs:
   sum:
+    outputs:
+      sum: ${{ steps.addition.outputs.sum }}
     runs-on: ubuntu-latest
     steps:
       - name: Add two numbers
