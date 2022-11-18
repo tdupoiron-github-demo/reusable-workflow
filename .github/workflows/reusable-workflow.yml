@@ -40,11 +40,3 @@ jobs:
         run: |
           export sum=$((${{ inputs.first_number }} + ${{ inputs.second_number }}))
           echo sum=$sum >> $GITHUB_OUTPUT
-          echo $sum
-
-  print:
-    needs: sum
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print sum
-        run: echo ${{ needs.sum.outputs.sum }}
