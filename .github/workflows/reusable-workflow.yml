@@ -27,7 +27,7 @@ on:
     outputs:
       sum:
         description: 'Sum of the two numbers'
-        value: ${{ jobs.sum.steps.addition.outputs.sum }}
+        value: ${{ jobs.sum.outputs.sum }}
 
 jobs:
   sum:
